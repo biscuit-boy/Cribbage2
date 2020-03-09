@@ -8,7 +8,7 @@ public class Deck extends CardGroup{
 
         for (char suit : Card.SUITS){
             for (char face : Card.FACES){
-                cards.add(new Card(suit, face));
+                getCards().add(new Card(suit, face));
             }
         }
 

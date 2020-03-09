@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CardGroup {
-    ArrayList<Card> cards;
+    private ArrayList<Card> cards;
 
     public CardGroup(){
         cards = new ArrayList<>();
@@ -24,6 +24,10 @@ public class CardGroup {
 
     public int size(){
         return cards.size();
+    }
+
+    public ArrayList<Card> getCards() {
+        return cards;
     }
 
     public Card get(int i){

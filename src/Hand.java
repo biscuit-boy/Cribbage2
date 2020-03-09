@@ -10,11 +10,11 @@ public class Hand extends CardGroup {
         int total = 0;
 
         //total += countDoubles(cards);
-        total += countFifteens(cards);
+        total += countFifteens(getCards());
 
-        Collections.sort(cards);
+        Collections.sort(getCards());
 
-        //total += countRuns(cards);
+        //total += countRuns(getCards());
 
         return total;
     }
@@ -42,20 +42,18 @@ public class Hand extends CardGroup {
         return 0;
     }
 
-    private int countFifteens(ArrayList <Card> hand){
-        if (total(hand) < 15){
+    private int countFifteens(ArrayList <Card> hand, int target){
+        if (total(hand) < target){
             return 0;
         }
-        else if (total(hand) == 15){
+        else if (total(hand) == target){
             return 2;
         }
         else{
             int count = 0;
 
             for (int i=0; i < hand.size(); ++i){
-                Card temp = hand.remove(i);
-                count += countFifteens(hand);
-                hand.add(i, temp);
+                count += countFifteens(hand, target - hand.get(i).getVal());
             }
 
             return count;
